@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UNIVERSE OS | Sovereign Console</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #050505; color: #00f2ff; font-family: 'Courier New', monospace; overflow: hidden; margin: 0; }
+        .glow { text-shadow: 0 0 10px #00f2ff; }
+        .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 8px; max-height: 40vh; overflow-y: auto; }
+        .pillar-box { border: 1px solid #00f2ff33; padding: 8px; text-align: center; border-radius: 4px; font-size: 0.65rem; transition: 0.3s; opacity: 0.5; }
+        .pillar-active { border-color: #00f2ff; box-shadow: 0 0 10px #00f2ff55; background: #00f2ff11; opacity: 1; color: #fff; }
+        #terminal { background: #000; border: 1px solid #1a1a1a; height: 30vh; overflow-y: auto; padding: 15px; font-size: 0.8rem; border-radius: 8px; color: #00ffaa; }
+        .cursor { display: inline-block; width: 8px; height: 15px; background: #00f2ff; animation: blink 1s infinite; }
+        @keyframes blink { 0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; } }
+    </style>
+</head>
+<body class="p-4 flex flex-col h-screen">
+    <div class="max-w-5xl mx-auto w-full flex-1 flex flex-col">
+        <header class="flex justify-between items-center mb-4">
+            <h1 class="text-xl font-bold glow tracking-widest">UNIVERSE OS <span class="text-[10px] opacity-40 font-normal">SOVEREIGN V1</span></h1>
+            <div id="status" class="text-[10px] border border-red-500 px-2 py-1 text-red-500">ENCRYPTION: LOCKED</div>
+        </header>
+
+        <div class="pillar-grid mb-4" id="pillarContainer"></div>
+
+        <div id="terminal" class="mb-4 font-mono leading-relaxed">
+            <div class="text-cyan-400">[SYSTEM] Initialization Complete.</div>
+            <div class="text-yellow-500">[SECURITY] NO API KEY DETECTED.</div>
+            <div class="text-white">To activate the 33 Pillars, type: <span class="text-cyan-400">auth [Your-Key]</span></div>
+        </div>
+
+        <div class="flex gap-2 pb-4">
+            <input type="password" id="cmd" placeholder="Enter Command..." class="flex-1 bg-black border border-cyan-900 p-4 rounded text-cyan-400 focus:outline-none focus:border-cyan-400 text-lg">
+            <button onclick="execute()" class="bg-cyan-900 text-cyan-100 px-8 rounded border border-cyan-400 font-bold">EXEC</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
